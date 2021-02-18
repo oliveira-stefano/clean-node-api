@@ -1,10 +1,14 @@
-import {SignUpController} from './signup'
-import {MissingParamError} from "../errors/missing-param-error"
+import {SignUpController}   from './signup'
+import {MissingParamError}  from "../errors/missing-param-error"
+
+const makeSut = (): SignUpController =>{
+    return new SignUpController()
+}
 
 describe('Signup Controller', () => {
 
-    test('Should return 400 if no name is provided'     , () => {
-        const sut = new SignUpController()
+    test('Should return 400 if no name is provided'     ,              () => {
+        const sut = makeSut()
         const httpRequest = {
             body:{
                 email:                'any_email@gmail.com',
@@ -17,8 +21,8 @@ describe('Signup Controller', () => {
         expect(httpResponse.body).toEqual(new MissingParamError('name'))
     });
     
-    test('Should return 400 if no email is provided'    , () => {
-        const sut = new SignUpController()
+    test('Should return 400 if no email is provided'    ,              () => {
+        const sut = makeSut()
         const httpRequest = {
             body:{
                 name:                 'any_name',
@@ -31,8 +35,8 @@ describe('Signup Controller', () => {
         expect(httpResponse.body).toEqual(new MissingParamError('email'))
     });
 
-    test('Should return 400 if no password is provided' , () => {
-        const sut = new SignUpController()
+    test('Should return 400 if no password is provided' ,              () => {
+        const sut = makeSut()
         const httpRequest = {
             body:{
                 email:                'any_email@gmail.com',
@@ -46,11 +50,11 @@ describe('Signup Controller', () => {
     });
 
     test('Should return 400 if no password confirmation is provided' , () => {
-        const sut = new SignUpController()
+        const sut = makeSut()
         const httpRequest = {
             body:{
-                email:                'any_email@gmail.com',
-                name:                 'any_name',
+                email:    'any_email@gmail.com',
+                name:     'any_name',
                 password: 'any_password'
             }
         }
@@ -59,5 +63,4 @@ describe('Signup Controller', () => {
         expect(httpResponse.body).toEqual(new MissingParamError('passwordConfirmation'))
     });
 
-  
 });
