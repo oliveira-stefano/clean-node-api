@@ -40,7 +40,6 @@ export class SignUpController implements Controller{
             password
         })
       } catch (error) {
-
           return serverError()
       }
         
