@@ -20,7 +20,7 @@
     "ts-jest": "^26.5.1",
     "typescript": "^4.1.5"
   },
-  "private": true,
+  "private": false,
   "scripts": {
     "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
     "test:unit": "yarn test -- --watch -c jest-unit-config.js",
