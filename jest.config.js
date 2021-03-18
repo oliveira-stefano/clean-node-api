@@ -10,9 +10,11 @@ module.exports = {
 
   coverageDirectory: "coverage",
 
-  coverageProvider: "v8",
+  coverageProvider: "babel",
 
   testEnvironment: "node",
+
+  collectCoverageFrom: [ '<rootDir>/src/**/*.ts', '!<rootDir>/src/main/**', '!<rootDir>/src/**/*-protocols.ts', '!**/protocols/**', '!**/test/**' ],
 
    transform:{
      '.+\\.ts$':'ts-jest'
