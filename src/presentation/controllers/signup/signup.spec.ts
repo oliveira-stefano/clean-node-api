@@ -2,9 +2,6 @@ import {SignUpController} from './signup'
 import {EmailValidator, AddAccountModel, AddAccount} from "./signup-protocols"
 import {MissingParamError, InvalidParamError, ServerError} from "../../errors"
 import { AccountModel } from '../../../domain/models/account'
-import { resolve } from 'node:path'
-import { rejects } from 'node:assert'
-
 
 
 const makeEmailValidator = (): EmailValidator =>{
